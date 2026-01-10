@@ -7,6 +7,13 @@ const Hero = () => {
     window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Sera Pansiyon'da rezervasyon yapmak istiyorum.`, '_blank');
   };
 
+  const scrollToRooms = () => {
+    const element = document.querySelector('#rooms');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="hero">
       <div className="hero-background">
@@ -25,22 +32,22 @@ const Hero = () => {
         </div>
         
         <h1 className="hero-title">
-          {hotelInfo.tagline}
+          Ayvalık'ın Kalbinde <span>Mükemmel</span> Konaklama Deneyimi
         </h1>
         
         <p className="hero-description">
-          {hotelInfo.description}
+          Tarihi taş ev mimarisinde, samimi ve sıcak bir atmosferde unutulmaz bir tatil sizi bekliyor.
         </p>
         
         <div className="hero-actions">
           <button className="btn-primary" onClick={openWhatsApp}>
             <Phone size={18} />
-            <span>Rezervasyon Yap</span>
+            <span>Hemen Rezervasyon Yap</span>
           </button>
           
-          <a href="#rooms" className="btn-secondary">
-            Odalarımızı İnceleyin
-          </a>
+          <button className="btn-secondary" onClick={scrollToRooms}>
+            Odalarımızı Keşfedin
+          </button>
         </div>
       </div>
     </section>
