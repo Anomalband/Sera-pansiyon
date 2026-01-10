@@ -10,9 +10,8 @@ const Header = () => {
     { name: 'Hakkımızda', href: '#about' },
     { name: 'Odalar', href: '#rooms' },
     { name: 'Konum', href: '#location' },
-    { name: 'Misafir Yorumları', href: '#testimonials' },
+    { name: 'Yorumlar', href: '#testimonials' },
     { name: 'Galeri', href: '#gallery' },
-    { name: 'İletişim', href: '#contact' },
   ];
 
   const scrollToSection = (e, href) => {

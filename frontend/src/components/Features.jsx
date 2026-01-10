@@ -18,7 +18,7 @@ const Features = () => {
           return (
             <div key={feature.id} className="feature-card">
               <div className="feature-icon">
-                <IconComponent size={24} />
+                <IconComponent size={28} />
               </div>
               <h3 className="feature-title">{feature.title}</h3>
               <p className="feature-description">{feature.description}</p>

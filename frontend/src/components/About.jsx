@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 import { aboutContent, hotelInfo } from '../data/mock';
 
 const About = () => {
@@ -23,6 +23,7 @@ const About = () => {
           <button className="btn-primary" onClick={openWhatsApp}>
             <Phone size={18} />
             <span>Bize Ulaşın</span>
+            <ArrowRight size={18} />
           </button>
         </div>
         

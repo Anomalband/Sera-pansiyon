@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Navigation, Phone } from 'lucide-react';
+import { MapPin, Navigation, Phone, ArrowRight, ExternalLink } from 'lucide-react';
 import { hotelInfo, nearbyPlaces } from '../data/mock';
 
 const Location = () => {
@@ -22,27 +22,25 @@ const Location = () => {
             Sessiz bir sokakta olmasına rağmen, çarşı, sahil ve restoranlar sadece birkaç adım ötenizdedir.
           </p>
 
-          <div className="nearby-places">
-            <h3 className="nearby-title">Yakın Çevremiz</h3>
-            <div className="nearby-grid">
-              {nearbyPlaces.map((place, index) => (
-                <div key={index} className="nearby-item">
-                  <Navigation size={14} />
-                  <span className="nearby-name">{place.name}</span>
-                  <span className="nearby-distance">{place.distance}</span>
-                </div>
-              ))}
-            </div>
+          <h3 className="nearby-title">Yakın Çevremiz</h3>
+          <div className="nearby-grid">
+            {nearbyPlaces.map((place, index) => (
+              <div key={index} className="nearby-item">
+                <Navigation size={16} />
+                <span className="nearby-name">{place.name}</span>
+                <span className="nearby-distance">{place.distance}</span>
+              </div>
+            ))}
           </div>
 
           <div className="location-address">
-            <MapPin size={18} />
+            <MapPin size={20} />
             <span>{hotelInfo.address}</span>
           </div>
 
           <div className="location-actions">
             <button className="btn-primary" onClick={openMaps}>
-              <MapPin size={18} />
+              <ExternalLink size={18} />
               <span>Haritada Gör</span>
             </button>
             <button className="btn-secondary" onClick={openWhatsApp}>
