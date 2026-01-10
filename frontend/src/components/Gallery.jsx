@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, ZoomIn } from 'lucide-react';
 import { galleryImages } from '../data/mock';
 
 const Gallery = () => {
@@ -24,6 +24,9 @@ const Gallery = () => {
         <div className="section-header">
           <span className="section-label">Galeri</span>
           <h2 className="section-title">Sera Pansiyon'dan Kareler</h2>
+          <p className="section-description">
+            Pansiyonumuzdan görüntüler ve Ayvalık'ın güzellikleri
+          </p>
         </div>
 
         <div className="gallery-filters">
@@ -51,7 +54,7 @@ const Gallery = () => {
                 className="gallery-image"
               />
               <div className="gallery-overlay">
-                <span>{image.alt}</span>
+                <ZoomIn size={24} />
               </div>
             </div>
           ))}

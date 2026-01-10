@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Instagram, MapPin, Mail } from 'lucide-react';
+import { Phone, Instagram, MapPin, ArrowRight } from 'lucide-react';
 import { hotelInfo } from '../data/mock';
 
 const Contact = () => {
@@ -12,7 +12,7 @@ const Contact = () => {
       <div className="contact-container">
         <div className="contact-content">
           <span className="section-label">İletişim</span>
-          <h2 className="contact-title">Rezervasyon & Bilgi</h2>
+          <h2 className="contact-title">Rezervasyon Yapmaya Hazır mısınız?</h2>
           <p className="contact-description">
             Rezervasyon yapmak veya sorularınız için WhatsApp üzerinden bize ulaşabilirsiniz. 
             Size en kısa sürede dönüş yapacağız.
@@ -23,7 +23,7 @@ const Contact = () => {
               href={`tel:${hotelInfo.whatsappDisplay.replace(/\s/g, '')}`}
               className="contact-item"
             >
-              <Phone size={20} />
+              <Phone size={22} />
               <span>{hotelInfo.whatsappDisplay}</span>
             </a>
 
@@ -33,7 +33,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="contact-item"
             >
-              <Instagram size={20} />
+              <Instagram size={22} />
               <span>@serapansiyonn</span>
             </a>
 
@@ -43,14 +43,15 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="contact-item"
             >
-              <MapPin size={20} />
+              <MapPin size={22} />
               <span>{hotelInfo.address}</span>
             </a>
           </div>
 
           <button className="contact-cta" onClick={openWhatsApp}>
-            <Phone size={20} />
+            <Phone size={22} />
             <span>WhatsApp ile Rezervasyon Yap</span>
+            <ArrowRight size={22} />
           </button>
         </div>
       </div>

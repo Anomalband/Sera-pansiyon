@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Instagram, MapPin, Mail, Heart } from 'lucide-react';
+import { Phone, Instagram, MapPin, Heart } from 'lucide-react';
 import { hotelInfo } from '../data/mock';
 
 const Footer = () => {
@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="footer-brand">
             <h3 className="footer-logo">Sera Pansiyon</h3>
             <p className="footer-tagline">
-              Ayvalık'ın kalbinde, ev sıcaklığında konaklama.
+              Ayvalık'ın kalbinde, ev sıcaklığında konaklama. Geleneksel taş mimaride modern konfor.
             </p>
             <div className="footer-social">
               <a

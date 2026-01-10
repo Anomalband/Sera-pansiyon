@@ -18,16 +18,16 @@ const Testimonials = () => {
           {testimonials.map((testimonial) => (
             <div key={testimonial.id} className="testimonial-card">
               <div className="testimonial-quote">
-                <Quote size={24} />
+                <Quote size={32} />
               </div>
               
               <div className="testimonial-rating">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} size={16} fill="currentColor" />
+                  <Star key={i} size={18} fill="currentColor" />
                 ))}
               </div>
               
-              <p className="testimonial-text">{testimonial.text}</p>
+              <p className="testimonial-text">"{testimonial.text}"</p>
               
               <div className="testimonial-author">
                 <div className="testimonial-avatar">
