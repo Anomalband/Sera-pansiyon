@@ -1256,7 +1256,7 @@ h1, h2, h3 {
 }
 
 /* ============================================
-   ANIMATIONS
+   ANIMATIONS - Intersection Observer Based
 ============================================ */
 @keyframes fadeInUp {
   from {
@@ -1269,34 +1269,107 @@ h1, h2, h3 {
   }
 }
 
-/* Parallax & Scroll Animation Classes */
-.animate-in {
-  animation: fadeInUp 0.8s ease-out forwards;
+/* Base states - hidden before animation */
+.feature-card,
+.room-card,
+.testimonial-card,
+.gallery-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Visible state - after intersection */
+.feature-card.visible,
+.room-card.visible,
+.testimonial-card.visible,
+.gallery-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* About section animations */
 .about-content,
 .about-image-wrapper {
-  transition: all 0.8s ease-out;
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-content {
+  transform: translateX(-40px);
 }
 
 .about-image-wrapper {
-  will-change: transform;
+  transform: translateX(40px);
 }
 
-.room-card {
-  transition: all 0.6s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
-  will-change: transform, opacity;
+.about-content.visible,
+.about-image-wrapper.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
-.testimonial-card {
-  will-change: transform, opacity;
+/* Location section animations */
+.location-content,
+.location-map {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .location-content {
-  will-change: transform, opacity;
+  transform: translateX(-40px);
 }
 
 .location-map {
+  transform: translateX(40px);
+}
+
+.location-content.visible,
+.location-map.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Nearby items animation */
+.nearby-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.nearby-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contact section animations */
+.contact-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.contact-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-item,
+.contact-cta {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, border-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-item.visible,
+.contact-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero parallax optimization */
+.hero-image,
+.hero-content {
   will-change: transform;
 }
 
