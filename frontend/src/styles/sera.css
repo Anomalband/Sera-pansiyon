@@ -953,6 +953,11 @@ h1, h2, h3 {
   overflow: hidden;
   border-radius: 16px;
   cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
 }
 
 .gallery-image {
