@@ -879,7 +879,17 @@ h1, h2, h3 {
 .testimonials {
   position: relative;
   padding: 120px 0;
-  background-color: var(--accent-primary);
+}
+
+.testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(217, 119, 6, 0.85) 0%,
+    rgba(180, 83, 9, 0.9) 100%
+  );
 }
 
 .testimonials::before {
