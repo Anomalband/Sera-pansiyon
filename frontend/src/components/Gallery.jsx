@@ -5,8 +5,9 @@ import { galleryImages } from '../data/mock';
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [filter, setFilter] = useState('all');
-  const [visibleItems, setVisibleItems] = useState([]);
+  const [visibleItems, setVisibleItems] = useState(new Set());
   const itemsRef = useRef([]);
+  const observerRef = useRef(null);
 
   const categories = [
     { id: 'all', name: 'Tümü' },
@@ -21,34 +22,34 @@ const Gallery = () => {
     : galleryImages.filter(img => img.category === filter);
 
   useEffect(() => {
-    // Reset visible items when filter changes
-    setVisibleItems([]);
+    // Reset when filter changes
+    setVisibleItems(new Set());
     itemsRef.current = [];
-    
-    const timer = setTimeout(() => {
-      const handleScroll = () => {
-        itemsRef.current.forEach((item, index) => {
-          if (item) {
-            const rect = item.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.95) {
-              setVisibleItems(prev => {
-                if (!prev.includes(index)) {
-                  return [...prev, index];
-                }
-                return prev;
-              });
-            }
-          }
-        });
-      };
 
-      window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll();
-      
-      return () => window.removeEventListener('scroll', handleScroll);
+    // Small delay to let DOM update
+    const timer = setTimeout(() => {
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const index = parseInt(entry.target.dataset.index);
+              setVisibleItems((prev) => new Set([...prev, index]));
+              observerRef.current?.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      itemsRef.current.forEach((item) => {
+        if (item) observerRef.current?.observe(item);
+      });
     }, 50);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      observerRef.current?.disconnect();
+    };
   }, [filter]);
 
   return (
@@ -77,16 +78,12 @@ const Gallery = () => {
         <div className="gallery-grid">
           {filteredImages.map((image, index) => (
             <div
-              key={image.id}
-              className="gallery-item"
+              key={`${filter}-${image.id}`}
+              className={`gallery-item ${visibleItems.has(index) ? 'visible' : ''}`}
               onClick={() => setSelectedImage(image)}
               ref={el => itemsRef.current[index] = el}
-              style={{ 
-                transitionDelay: `${index * 80}ms`,
-                transform: visibleItems.includes(index) ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
-                opacity: visibleItems.includes(index) ? 1 : 0,
-                transition: 'all 0.5s ease-out'
-              }}
+              data-index={index}
+              style={{ transitionDelay: `${index * 60}ms` }}
             >
               <img
                 src={image.src}

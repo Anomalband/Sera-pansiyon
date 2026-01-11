@@ -3,25 +3,30 @@ import { Star, Quote } from 'lucide-react';
 import { testimonials } from '../data/mock';
 
 const Testimonials = () => {
-  const [visibleCards, setVisibleCards] = useState([]);
+  const [visibleCards, setVisibleCards] = useState(new Set());
   const cardsRef = useRef([]);
+  const observerRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      cardsRef.current.forEach((card, index) => {
-        if (card) {
-          const rect = card.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.85 && !visibleCards.includes(index)) {
-            setVisibleCards(prev => [...prev, index]);
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index);
+            setVisibleCards((prev) => new Set([...prev, index]));
+            observerRef.current?.unobserve(entry.target);
           }
-        }
-      });
-    };
+        });
+      },
+      { threshold: 0.15 }
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [visibleCards]);
+    cardsRef.current.forEach((card) => {
+      if (card) observerRef.current?.observe(card);
+    });
+
+    return () => observerRef.current?.disconnect();
+  }, []);
 
   return (
     <section id="testimonials" className="testimonials">
@@ -38,16 +43,10 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={testimonial.id} 
-              className={`testimonial-card ${visibleCards.includes(index) ? 'animate-in' : ''}`}
+              className={`testimonial-card ${visibleCards.has(index) ? 'visible' : ''}`}
               ref={el => cardsRef.current[index] = el}
-              style={{ 
-                transitionDelay: `${index * 150}ms`,
-                transform: visibleCards.includes(index) 
-                  ? 'translateY(0) scale(1)' 
-                  : 'translateY(40px) scale(0.95)',
-                opacity: visibleCards.includes(index) ? 1 : 0,
-                transition: 'all 0.6s ease-out'
-              }}
+              data-index={index}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="testimonial-quote">
                 <Quote size={32} />

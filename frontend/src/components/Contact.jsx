@@ -7,18 +7,21 @@ const Contact = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
           setIsVisible(true);
+          observer.disconnect();
         }
-      }
-    };
+      },
+      { threshold: 0.2 }
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const openWhatsApp = () => {
@@ -28,14 +31,7 @@ const Contact = () => {
   return (
     <section id="contact" className="contact" ref={sectionRef}>
       <div className="contact-container">
-        <div 
-          className="contact-content"
-          style={{
-            transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
-            opacity: isVisible ? 1 : 0,
-            transition: 'all 0.8s ease-out'
-          }}
-        >
+        <div className={`contact-content ${isVisible ? 'visible' : ''}`}>
           <span className="section-label">İletişim</span>
           <h2 className="contact-title">Rezervasyon Yapmaya Hazır mısınız?</h2>
           <p className="contact-description">
@@ -46,13 +42,8 @@ const Contact = () => {
           <div className="contact-info">
             <a
               href={`tel:${hotelInfo.whatsappDisplay.replace(/\s/g, '')}`}
-              className="contact-item"
-              style={{
-                transitionDelay: '100ms',
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                opacity: isVisible ? 1 : 0,
-                transition: 'all 0.5s ease-out'
-              }}
+              className={`contact-item ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: '100ms' }}
             >
               <Phone size={22} />
               <span>{hotelInfo.whatsappDisplay}</span>
@@ -62,13 +53,8 @@ const Contact = () => {
               href={hotelInfo.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="contact-item"
-              style={{
-                transitionDelay: '200ms',
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                opacity: isVisible ? 1 : 0,
-                transition: 'all 0.5s ease-out'
-              }}
+              className={`contact-item ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: '200ms' }}
             >
               <Instagram size={22} />
               <span>@serapansiyonn</span>
@@ -78,13 +64,8 @@ const Contact = () => {
               href={hotelInfo.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="contact-item"
-              style={{
-                transitionDelay: '300ms',
-                transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                opacity: isVisible ? 1 : 0,
-                transition: 'all 0.5s ease-out'
-              }}
+              className={`contact-item ${isVisible ? 'visible' : ''}`}
+              style={{ transitionDelay: '300ms' }}
             >
               <MapPin size={22} />
               <span>{hotelInfo.address}</span>
@@ -92,14 +73,9 @@ const Contact = () => {
           </div>
 
           <button 
-            className="contact-cta" 
+            className={`contact-cta ${isVisible ? 'visible' : ''}`}
             onClick={openWhatsApp}
-            style={{
-              transitionDelay: '400ms',
-              transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
-              opacity: isVisible ? 1 : 0,
-              transition: 'all 0.6s ease-out'
-            }}
+            style={{ transitionDelay: '400ms' }}
           >
             <Phone size={22} />
             <span>WhatsApp ile Rezervasyon Yap</span>
