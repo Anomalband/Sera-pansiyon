@@ -588,12 +588,10 @@ h1, h2, h3 {
   border: 1px solid var(--border-dark);
   border-radius: 24px;
   overflow: hidden;
-  transition: var(--transition-smooth);
 }
 
 .room-card:hover {
   border-color: var(--accent-primary);
-  transform: translateY(-10px);
   box-shadow: var(--shadow-lg);
 }
 
