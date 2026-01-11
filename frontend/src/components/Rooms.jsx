@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Users, Phone, Check, ArrowRight } from 'lucide-react';
-import { rooms, hotelInfo } from '../data/mock';
+import { rooms, hotelInfo, sectionBackgrounds } from '../data/mock';
 
 const Rooms = () => {
   const [visibleCards, setVisibleCards] = useState(new Set());
@@ -33,7 +33,16 @@ const Rooms = () => {
   };
 
   return (
-    <section id="rooms" className="rooms">
+    <section 
+      id="rooms" 
+      className="rooms"
+      style={{
+        backgroundImage: `url(${sectionBackgrounds.rooms})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       <div className="rooms-container">
         <div className="section-header">
           <span className="section-label">Odalarımız</span>
