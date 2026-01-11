@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Star, Quote } from 'lucide-react';
-import { testimonials } from '../data/mock';
+import { testimonials, sectionBackgrounds } from '../data/mock';
 
 const Testimonials = () => {
   const [visibleCards, setVisibleCards] = useState(new Set());
@@ -29,7 +29,16 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="testimonials">
+    <section 
+      id="testimonials" 
+      className="testimonials"
+      style={{
+        backgroundImage: `url(${sectionBackgrounds.testimonials})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       <div className="testimonials-container">
         <div className="section-header">
           <span className="section-label">Misafir Yorumları</span>
