@@ -603,7 +603,7 @@ h1, h2, h3 {
 .rooms {
   position: relative;
   padding: 120px 0;
-  background-image: url('https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-image: url('/images/sera-5.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
