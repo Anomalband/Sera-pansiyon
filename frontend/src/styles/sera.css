@@ -1117,7 +1117,7 @@ h1, h2, h3 {
 .contact {
   position: relative;
   padding: 120px 0;
-  background-image: url('https://images.pexels.com/photos/35565461/pexels-photo-35565461.jpeg?auto=compress&cs=tinysrgb&w=1920');
+  background-image: url('/images/sera-9.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
