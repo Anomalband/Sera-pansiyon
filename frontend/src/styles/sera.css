@@ -831,12 +831,10 @@ h1, h2, h3 {
   border-radius: 24px;
   padding: 36px;
   position: relative;
-  transition: var(--transition-smooth);
 }
 
 .testimonial-card:hover {
   border-color: var(--accent-primary);
-  transform: translateY(-5px);
 }
 
 .testimonial-quote {
