@@ -468,14 +468,11 @@ h1, h2, h3 {
   background: var(--bg-card);
   border: 1px solid var(--border-dark);
   border-radius: 20px;
-  transition: var(--transition-smooth);
 }
 
 .feature-card:hover {
   background: var(--bg-card-hover);
   border-color: var(--accent-primary);
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
 }
 
 .feature-icon {
