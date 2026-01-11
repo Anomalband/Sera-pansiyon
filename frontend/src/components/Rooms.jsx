@@ -3,25 +3,30 @@ import { Users, Phone, Check, ArrowRight } from 'lucide-react';
 import { rooms, hotelInfo } from '../data/mock';
 
 const Rooms = () => {
-  const [visibleCards, setVisibleCards] = useState([]);
+  const [visibleCards, setVisibleCards] = useState(new Set());
   const cardsRef = useRef([]);
+  const observerRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      cardsRef.current.forEach((card, index) => {
-        if (card) {
-          const rect = card.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.85 && !visibleCards.includes(index)) {
-            setVisibleCards(prev => [...prev, index]);
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index);
+            setVisibleCards((prev) => new Set([...prev, index]));
+            observerRef.current?.unobserve(entry.target);
           }
-        }
-      });
-    };
+        });
+      },
+      { threshold: 0.15 }
+    );
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [visibleCards]);
+    cardsRef.current.forEach((card) => {
+      if (card) observerRef.current?.observe(card);
+    });
+
+    return () => observerRef.current?.disconnect();
+  }, []);
 
   const openWhatsApp = (roomName) => {
     window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, ${roomName} için rezervasyon yapmak istiyorum.`, '_blank');
@@ -42,13 +47,10 @@ const Rooms = () => {
           {rooms.map((room, index) => (
             <div 
               key={room.id} 
-              className={`room-card ${visibleCards.includes(index) ? 'animate-in' : ''}`}
+              className={`room-card ${visibleCards.has(index) ? 'visible' : ''}`}
               ref={el => cardsRef.current[index] = el}
-              style={{ 
-                transitionDelay: `${index * 150}ms`,
-                transform: visibleCards.includes(index) ? 'translateY(0)' : 'translateY(60px)',
-                opacity: visibleCards.includes(index) ? 1 : 0,
-              }}
+              data-index={index}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="room-image-wrapper">
                 <img

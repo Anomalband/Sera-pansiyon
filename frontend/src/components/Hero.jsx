@@ -1,18 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { Phone, MapPin } from 'lucide-react';
 import { hotelInfo, heroImages } from '../data/mock';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
+  const ticking = useRef(false);
+
+  const handleScroll = useCallback(() => {
+    if (!ticking.current) {
+      window.requestAnimationFrame(() => {
+        setScrollY(window.scrollY);
+        ticking.current = false;
+      });
+      ticking.current = true;
+    }
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const openWhatsApp = () => {
     window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Sera Pansiyon'da rezervasyon yapmak istiyorum.`, '_blank');
@@ -33,7 +40,7 @@ const Hero = () => {
           alt="Ayvalık manzarası"
           className="hero-image"
           style={{
-            transform: `translateY(${scrollY * 0.5}px) scale(1.1)`,
+            transform: `translateY(${scrollY * 0.4}px)`,
           }}
         />
         <div className="hero-overlay"></div>
@@ -42,8 +49,8 @@ const Hero = () => {
       <div 
         className="hero-content"
         style={{
-          transform: `translateY(${scrollY * 0.3}px)`,
-          opacity: Math.max(0, 1 - scrollY / 600),
+          transform: `translateY(${scrollY * 0.2}px)`,
+          opacity: Math.max(0, 1 - scrollY / 500),
         }}
       >
         <div className="hero-badge">
@@ -71,10 +78,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <div 
         className="scroll-indicator"
-        style={{ opacity: Math.max(0, 1 - scrollY / 300) }}
+        style={{ opacity: Math.max(0, 1 - scrollY / 200) }}
       >
         <div className="scroll-mouse">
           <div className="scroll-wheel"></div>
