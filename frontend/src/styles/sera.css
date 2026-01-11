@@ -1264,8 +1264,40 @@ h1, h2, h3 {
   }
 }
 
-.hero-content {
-  animation: fadeInUp 1s ease-out;
+/* Parallax & Scroll Animation Classes */
+.animate-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.about-content,
+.about-image-wrapper {
+  transition: all 0.8s ease-out;
+}
+
+.about-image-wrapper {
+  will-change: transform;
+}
+
+.room-card {
+  transition: all 0.6s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.testimonial-card {
+  will-change: transform, opacity;
+}
+
+.location-content {
+  will-change: transform, opacity;
+}
+
+.location-map {
+  will-change: transform;
+}
+
+/* Smooth section transitions */
+section {
+  position: relative;
 }
 
 /* ============================================
