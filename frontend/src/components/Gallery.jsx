@@ -23,22 +23,33 @@ const Gallery = () => {
   useEffect(() => {
     // Reset visible items when filter changes
     setVisibleItems([]);
+    itemsRef.current = [];
     
-    const handleScroll = () => {
-      itemsRef.current.forEach((item, index) => {
-        if (item) {
-          const rect = item.getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.9 && !visibleItems.includes(index)) {
-            setVisibleItems(prev => [...prev, index]);
+    const timer = setTimeout(() => {
+      const handleScroll = () => {
+        itemsRef.current.forEach((item, index) => {
+          if (item) {
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.95) {
+              setVisibleItems(prev => {
+                if (!prev.includes(index)) {
+                  return [...prev, index];
+                }
+                return prev;
+              });
+            }
           }
-        }
-      });
-    };
+        });
+      };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    setTimeout(handleScroll, 100);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [filter, visibleItems]);
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+      
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [filter]);
 
   return (
     <section id="gallery" className="gallery">
