@@ -869,10 +869,7 @@ h1, h2, h3 {
 .testimonials {
   position: relative;
   padding: 120px 0;
-  background-image: url('/images/sera-6.webp');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: var(--accent-primary);
 }
 
 .testimonials::before {
