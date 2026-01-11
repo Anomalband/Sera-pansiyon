@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 import { galleryImages } from '../data/mock';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [filter, setFilter] = useState('all');
+  const [visibleItems, setVisibleItems] = useState([]);
+  const itemsRef = useRef([]);
 
   const categories = [
     { id: 'all', name: 'Tümü' },
@@ -17,6 +19,26 @@ const Gallery = () => {
   const filteredImages = filter === 'all' 
     ? galleryImages 
     : galleryImages.filter(img => img.category === filter);
+
+  useEffect(() => {
+    // Reset visible items when filter changes
+    setVisibleItems([]);
+    
+    const handleScroll = () => {
+      itemsRef.current.forEach((item, index) => {
+        if (item) {
+          const rect = item.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.9 && !visibleItems.includes(index)) {
+            setVisibleItems(prev => [...prev, index]);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    setTimeout(handleScroll, 100);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [filter, visibleItems]);
 
   return (
     <section id="gallery" className="gallery">
@@ -42,11 +64,18 @@ const Gallery = () => {
         </div>
 
         <div className="gallery-grid">
-          {filteredImages.map((image) => (
+          {filteredImages.map((image, index) => (
             <div
               key={image.id}
               className="gallery-item"
               onClick={() => setSelectedImage(image)}
+              ref={el => itemsRef.current[index] = el}
+              style={{ 
+                transitionDelay: `${index * 80}ms`,
+                transform: visibleItems.includes(index) ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.95)',
+                opacity: visibleItems.includes(index) ? 1 : 0,
+                transition: 'all 0.5s ease-out'
+              }}
             >
               <img
                 src={image.src}
