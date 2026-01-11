@@ -1,4 +1,4 @@
-// Sera Pansiyon - Mock Data
+// Sera Pansiyon - Mock Data with Real Photos
 
 export const hotelInfo = {
   name: "Sera Pansiyon",
@@ -14,8 +14,8 @@ export const hotelInfo = {
 };
 
 export const heroImages = {
-  main: "https://images.pexels.com/photos/35562741/pexels-photo-35562741.jpeg?auto=compress&cs=tinysrgb&w=1920",
-  terrace: "https://images.pexels.com/photos/33389243/pexels-photo-33389243.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  main: "/images/sera-5.webp", // Teras manzarası - Ayvalık ve deniz görünümü
+  terrace: "/images/sera-5.webp"
 };
 
 export const features = [
@@ -52,7 +52,7 @@ export const rooms = [
     description: "Şık ve konforlu standart odalarımız, dinlendirici bir konaklama için tüm ihtiyaçlarınızı karşılar. Geleneksel taş duvarlar ve modern konfor bir arada.",
     capacity: "2 Kişi",
     features: ["Çift Kişilik Yatak", "Klima", "Özel Banyo", "Ücretsiz Wi-Fi", "Tavan Vantilatörü"],
-    image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: "/images/sera-10.webp" // Taş duvarlı oda - şömineli
   },
   {
     id: 2,
@@ -60,7 +60,7 @@ export const rooms = [
     description: "Özel terasıyla Ayvalık manzarasının keyfini çıkarabileceğiniz odalarımız. Sabah kahvenizi eşsiz manzara eşliğinde için.",
     capacity: "2 Kişi",
     features: ["Özel Teras", "Manzara", "Çift Kişilik Yatak", "Klima", "Özel Banyo", "Ücretsiz Wi-Fi"],
-    image: "https://images.pexels.com/photos/2565222/pexels-photo-2565222.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: "/images/sera-11.webp" // Taş duvarlı oda - geniş
   },
   {
     id: 3,
@@ -68,7 +68,7 @@ export const rooms = [
     description: "İki katlı geniş odalarımız, aileler ve arkadaş grupları için idealdir. Ferah yaşam alanı ve ekstra konfor sunar.",
     capacity: "4 Kişi",
     features: ["İki Katlı", "Geniş Alan", "Çoklu Yatak", "Klima", "Özel Banyo", "Ücretsiz Wi-Fi", "Oturma Alanı"],
-    image: "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800"
+    image: "/images/sera-12.webp" // Başka bir oda
   }
 ];
 
@@ -110,50 +110,74 @@ export const testimonials = [
 export const galleryImages = [
   {
     id: 1,
-    src: "https://images.pexels.com/photos/210017/pexels-photo-210017.jpeg?auto=compress&cs=tinysrgb&w=600",
+    src: "/images/sera-8.webp", // Dış cephe - begonvil
     alt: "Sera Pansiyon dış görünüm",
     category: "exterior"
   },
   {
     id: 2,
-    src: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Konforlu oda",
-    category: "rooms"
+    src: "/images/sera-9.webp", // Dış cephe - begonvil 2
+    alt: "Sera Pansiyon giriş",
+    category: "exterior"
   },
   {
     id: 3,
-    src: "https://images.pexels.com/photos/33389243/pexels-photo-33389243.jpeg?auto=compress&cs=tinysrgb&w=600",
+    src: "/images/sera-6.webp", // Dış cephe - zeytin ağacı
+    alt: "Taş ev mimarisi",
+    category: "exterior"
+  },
+  {
+    id: 4,
+    src: "/images/sera-5.webp", // Teras manzarası
     alt: "Teras manzarası",
     category: "terrace"
   },
   {
-    id: 4,
-    src: "https://images.pexels.com/photos/35565461/pexels-photo-35565461.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Ayvalık sokakları",
-    category: "location"
-  },
-  {
     id: 5,
-    src: "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Dubleks oda",
+    src: "/images/sera-10.webp", // Oda 1
+    alt: "Taş duvarlı oda",
     category: "rooms"
   },
   {
     id: 6,
-    src: "https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Ayvalık kıyısı",
-    category: "location"
+    src: "/images/sera-11.webp", // Oda 2
+    alt: "Konforlu yatak odası",
+    category: "rooms"
   },
   {
     id: 7,
-    src: "https://images.pexels.com/photos/103124/pexels-photo-103124.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Kahvaltı",
-    category: "terrace"
+    src: "/images/sera-12.webp", // Oda 3
+    alt: "Geniş oda",
+    category: "rooms"
   },
   {
     id: 8,
-    src: "https://images.pexels.com/photos/2565222/pexels-photo-2565222.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Teraslı oda",
+    src: "/images/sera-1.jpg", // Giriş
+    alt: "Pansiyon girişi",
+    category: "exterior"
+  },
+  {
+    id: 9,
+    src: "/images/sera-13.webp",
+    alt: "Sera Pansiyon",
+    category: "exterior"
+  },
+  {
+    id: 10,
+    src: "/images/sera-14.webp",
+    alt: "Sera Pansiyon detay",
+    category: "exterior"
+  },
+  {
+    id: 11,
+    src: "/images/sera-15.webp",
+    alt: "Pansiyon görünüm",
+    category: "exterior"
+  },
+  {
+    id: 12,
+    src: "/images/sera-16.webp",
+    alt: "Sera Pansiyon",
     category: "rooms"
   }
 ];
@@ -175,5 +199,5 @@ export const aboutContent = {
     "Pansiyonumuz, Ayvalık'ın karakteristik dar sokaklarında, çarşıya, sahile ve tüm turistik noktalara yürüme mesafesindedir. Tarihi taş yapımız, yazın doğal serinlik sağlarken, kışın sıcak bir atmosfer sunar.",
     "Misafir memnuniyeti bizim önceliğimizdir. Ayvalık'ın gizli köşelerini, en iyi restoranları ve görülmesi gereken yerleri sizinle paylaşmaktan mutluluk duyarız."
   ],
-  image: "https://images.pexels.com/photos/35595677/pexels-photo-35595677.jpeg?auto=compress&cs=tinysrgb&w=800"
+  image: "/images/sera-8.webp" // Begonvilli dış cephe
 };
