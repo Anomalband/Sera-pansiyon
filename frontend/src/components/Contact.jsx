@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Phone, Instagram, MapPin, ArrowRight } from 'lucide-react';
-import { hotelInfo } from '../data/mock';
+import { hotelInfo, sectionBackgrounds } from '../data/mock';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,7 +29,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact" ref={sectionRef}>
+    <section 
+      id="contact" 
+      className="contact" 
+      ref={sectionRef}
+      style={{
+        backgroundImage: `url(${sectionBackgrounds.contact})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       <div className="contact-container">
         <div className={`contact-content ${isVisible ? 'visible' : ''}`}>
           <span className="section-label">İletişim</span>
