@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Phone, MapPin } from 'lucide-react';
 import { hotelInfo, heroImages } from '../data/mock';
 
 const Hero = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const openWhatsApp = () => {
     window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Sera Pansiyon'da rezervasyon yapmak istiyorum.`, '_blank');
   };
@@ -21,11 +32,20 @@ const Hero = () => {
           src={heroImages.main}
           alt="Ayvalık manzarası"
           className="hero-image"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px) scale(1.1)`,
+          }}
         />
         <div className="hero-overlay"></div>
       </div>
       
-      <div className="hero-content">
+      <div 
+        className="hero-content"
+        style={{
+          transform: `translateY(${scrollY * 0.3}px)`,
+          opacity: Math.max(0, 1 - scrollY / 600),
+        }}
+      >
         <div className="hero-badge">
           <MapPin size={14} />
           <span>Ayvalık, Balıkesir</span>
@@ -49,6 +69,17 @@ const Hero = () => {
             Odalarımızı Keşfedin
           </button>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div 
+        className="scroll-indicator"
+        style={{ opacity: Math.max(0, 1 - scrollY / 300) }}
+      >
+        <div className="scroll-mouse">
+          <div className="scroll-wheel"></div>
+        </div>
+        <span>Aşağı Kaydır</span>
       </div>
     </section>
   );

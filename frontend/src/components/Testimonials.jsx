@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Star, Quote } from 'lucide-react';
 import { testimonials } from '../data/mock';
 
 const Testimonials = () => {
+  const [visibleCards, setVisibleCards] = useState([]);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      cardsRef.current.forEach((card, index) => {
+        if (card) {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.85 && !visibleCards.includes(index)) {
+            setVisibleCards(prev => [...prev, index]);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [visibleCards]);
+
   return (
     <section id="testimonials" className="testimonials">
       <div className="testimonials-container">
@@ -15,8 +35,20 @@ const Testimonials = () => {
         </div>
 
         <div className="testimonials-grid">
-          {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="testimonial-card">
+          {testimonials.map((testimonial, index) => (
+            <div 
+              key={testimonial.id} 
+              className={`testimonial-card ${visibleCards.includes(index) ? 'animate-in' : ''}`}
+              ref={el => cardsRef.current[index] = el}
+              style={{ 
+                transitionDelay: `${index * 150}ms`,
+                transform: visibleCards.includes(index) 
+                  ? 'translateY(0) scale(1)' 
+                  : 'translateY(40px) scale(0.95)',
+                opacity: visibleCards.includes(index) ? 1 : 0,
+                transition: 'all 0.6s ease-out'
+              }}
+            >
               <div className="testimonial-quote">
                 <Quote size={32} />
               </div>
