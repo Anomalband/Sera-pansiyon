@@ -348,6 +348,54 @@ h1, h2, h3 {
   text-align: center;
   max-width: 900px;
   padding: 0 40px;
+  will-change: transform, opacity;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  will-change: opacity;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-mouse {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--text-secondary);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.scroll-wheel {
+  width: 4px;
+  height: 10px;
+  background: var(--accent-primary);
+  border-radius: 2px;
+  animation: scrollWheel 2s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+  0%, 100% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% { 
+    transform: translateY(8px);
+    opacity: 0.3;
+  }
 }
 
 .hero-badge {
