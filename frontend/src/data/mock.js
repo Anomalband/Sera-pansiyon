@@ -14,15 +14,15 @@ export const hotelInfo = {
 };
 
 export const heroImages = {
-  main: "/images/hero-main.png", // Palmiye ve deniz manzarası
-  terrace: "/images/hero-main.png"
+  main: "/images/hero.png",
+  terrace: "/images/hero.png"
 };
 
 // Section arka plan görselleri
 export const sectionBackgrounds = {
-  rooms: "/images/rooms-bg.png", // Yeni yüksek kaliteli görsel
+  rooms: "/images/odalar.png",
   testimonials: "/images/sera-6.webp",
-  contact: "/images/sera-9.webp"
+  contact: "/images/iletisim.png"
 };
 
 export const features = [
