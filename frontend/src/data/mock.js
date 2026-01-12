@@ -14,9 +14,11 @@ export const hotelInfo = {
 };
 
 export const heroImages = {
-  main: "/images/hero.png",
-  terrace: "/images/hero.png"
+  main: "/images/hero.jpg",
+  terrace: "/images/hero.jpg"
 };
+
+export const logo = "/images/logo.jpeg";
 
 // Section arka plan görselleri
 export const sectionBackgrounds = {
