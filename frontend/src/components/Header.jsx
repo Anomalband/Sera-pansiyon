@@ -32,7 +32,6 @@ const Header = () => {
       <div className="header-container">
         <a href="#home" className="header-logo" onClick={(e) => scrollToSection(e, '#home')}>
           <img src={logo} alt="Sera Pansiyon" className="header-logo-img" />
-          <span>Sera Pansiyon</span>
         </a>
 
         {/* Desktop Navigation */}
