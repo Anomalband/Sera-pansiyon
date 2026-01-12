@@ -14,7 +14,6 @@ const Gallery = () => {
     { id: 'rooms', name: 'Odalar' },
     { id: 'terrace', name: 'Teras' },
     { id: 'exterior', name: 'Dış Mekan' },
-    { id: 'location', name: 'Konum' },
   ];
 
   const filteredImages = filter === 'all' 
