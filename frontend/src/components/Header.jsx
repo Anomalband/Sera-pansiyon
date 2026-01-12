@@ -24,14 +24,14 @@ const Header = () => {
   };
 
   const openWhatsApp = () => {
-    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Sera Pansiyon hakkında bilgi almak istiyorum.`, '_blank');
+    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Ayvalık Sera Pansiyon hakkında bilgi almak istiyorum.`, '_blank');
   };
 
   return (
     <header className="header">
       <div className="header-container">
         <a href="#home" className="header-logo" onClick={(e) => scrollToSection(e, '#home')}>
-          <img src={logo} alt="Sera Pansiyon" className="header-logo-img" />
+          <img src={logo} alt="Ayvalık Sera Pansiyon" className="header-logo-img" />
         </a>
 
         {/* Desktop Navigation */}

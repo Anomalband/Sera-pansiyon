@@ -22,7 +22,7 @@ const Hero = () => {
   }, [handleScroll]);
 
   const openWhatsApp = () => {
-    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Sera Pansiyon'da rezervasyon yapmak istiyorum.`, '_blank');
+    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Ayvalık Sera Pansiyon'da rezervasyon yapmak istiyorum.`, '_blank');
   };
 
   const scrollToRooms = () => {

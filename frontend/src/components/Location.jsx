@@ -29,7 +29,7 @@ const Location = () => {
   };
 
   const openWhatsApp = () => {
-    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Sera Pansiyon'a nasıl ulaşabilirim?`, '_blank');
+    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Ayvalık Sera Pansiyon'a nasıl ulaşabilirim?`, '_blank');
   };
 
   return (
@@ -39,7 +39,7 @@ const Location = () => {
           <span className="section-label">Konum</span>
           <h2 className="location-title">Ayvalık'ın Tam Kalbinde</h2>
           <p className="location-description">
-            Sera Pansiyon, Ayvalık'ın tarihi merkezinde, tüm turistik noktalara yürüme mesafesinde konumlanmıştır. 
+            Ayvalık Sera Pansiyon, Ayvalık'ın tarihi merkezinde, tüm turistik noktalara yürüme mesafesinde konumlanmıştır. 
             Sessiz bir sokakta olmasına rağmen, çarşı, sahil ve restoranlar sadece birkaç adım ötenizdedir.
           </p>
 
@@ -84,7 +84,7 @@ const Location = () => {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Sera Pansiyon Konum"
+            title="Ayvalık Sera Pansiyon Konum"
           ></iframe>
         </div>
       </div>

@@ -44,7 +44,7 @@ const Testimonials = () => {
           <span className="section-label">Misafir Yorumları</span>
           <h2 className="section-title">Misafirlerimiz Ne Diyor?</h2>
           <p className="section-description">
-            Değerli misafirlerimizin Sera Pansiyon deneyimleri
+            Değerli misafirlerimizin Ayvalık Sera Pansiyon deneyimleri
           </p>
         </div>
 

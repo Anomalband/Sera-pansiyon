@@ -25,7 +25,7 @@ const About = () => {
   }, []);
 
   const openWhatsApp = () => {
-    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Sera Pansiyon hakkında bilgi almak istiyorum.`, '_blank');
+    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Ayvalık Sera Pansiyon hakkında bilgi almak istiyorum.`, '_blank');
   };
 
   return (
@@ -56,7 +56,7 @@ const About = () => {
         <div className={`about-image-wrapper ${isVisible ? 'visible' : ''}`}>
           <img
             src={aboutContent.image}
-            alt="Sera Pansiyon"
+            alt="Ayvalık Sera Pansiyon"
             className="about-image"
           />
         </div>

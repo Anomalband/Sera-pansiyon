@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const openWhatsApp = () => {
-    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Sera Pansiyon hakkında bilgi almak istiyorum.`, '_blank');
+    window.open(`https://wa.me/${hotelInfo.whatsapp}?text=Merhaba, Ayvalık Sera Pansiyon hakkında bilgi almak istiyorum.`, '_blank');
   };
 
   const scrollToSection = (e, href) => {
@@ -22,7 +22,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-main">
           <div className="footer-brand">
-            <h3 className="footer-logo">Sera Pansiyon</h3>
+            <h3 className="footer-logo">Ayvalık Sera Pansiyon</h3>
             <p className="footer-tagline">
               Ayvalık'ın kalbinde, ev sıcaklığında konaklama. Geleneksel taş mimaride modern konfor.
             </p>
@@ -74,7 +74,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {currentYear} Sera Pansiyon. Tüm hakları saklıdır.
+            © {currentYear} Ayvalık Sera Pansiyon. Tüm hakları saklıdır.
           </p>
           <p className="footer-made">
             <Heart size={14} fill="currentColor" />

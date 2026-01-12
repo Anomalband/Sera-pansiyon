@@ -56,7 +56,7 @@ const Gallery = () => {
       <div className="gallery-container">
         <div className="section-header">
           <span className="section-label">Galeri</span>
-          <h2 className="section-title">Sera Pansiyon'dan Kareler</h2>
+          <h2 className="section-title">Ayvalık Sera Pansiyon'dan Kareler</h2>
           <p className="section-description">
             Pansiyonumuzdan görüntüler ve Ayvalık'ın güzellikleri
           </p>
