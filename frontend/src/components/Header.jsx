@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
-import { hotelInfo } from '../data/mock';
+import { hotelInfo, logo } from '../data/mock';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,7 +31,8 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <a href="#home" className="header-logo" onClick={(e) => scrollToSection(e, '#home')}>
-          Sera Pansiyon
+          <img src={logo} alt="Sera Pansiyon" className="header-logo-img" />
+          <span>Sera Pansiyon</span>
         </a>
 
         {/* Desktop Navigation */}
