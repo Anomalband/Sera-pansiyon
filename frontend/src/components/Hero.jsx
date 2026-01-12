@@ -53,11 +53,6 @@ const Hero = () => {
           opacity: Math.max(0, 1 - scrollY / 500),
         }}
       >
-        {/* Logo */}
-        <div className="hero-logo">
-          <img src={logo} alt="Sera Pansiyon Logo" />
-        </div>
-
         <div className="hero-badge">
           <MapPin size={14} />
           <span>Ayvalık, Balıkesir</span>
