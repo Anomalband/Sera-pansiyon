@@ -14,13 +14,13 @@ export const hotelInfo = {
 };
 
 export const heroImages = {
-  main: "/images/sera-5.webp", // Teras manzarası - Ayvalık ve deniz görünümü
-  terrace: "/images/sera-5.webp"
+  main: "/images/hero-new.png", // Yeni yüksek kaliteli görsel
+  terrace: "/images/hero-new.png"
 };
 
 // Section arka plan görselleri
 export const sectionBackgrounds = {
-  rooms: "/images/sera-5.webp",
+  rooms: "/images/rooms-bg.png", // Yeni yüksek kaliteli görsel
   testimonials: "/images/sera-6.webp",
   contact: "/images/sera-9.webp"
 };
@@ -114,7 +114,9 @@ export const testimonials = [
   }
 ];
 
+// Galeri - Konum kategorisi kaldırıldı, yanlış kategoriler düzeltildi
 export const galleryImages = [
+  // Dış Mekan - sadece bina dışı fotoğraflar
   {
     id: 1,
     src: "/images/sera-8.webp",
@@ -135,56 +137,46 @@ export const galleryImages = [
   },
   {
     id: 4,
-    src: "/images/sera-5.webp",
-    alt: "Teras manzarası",
-    category: "terrace"
-  },
-  {
-    id: 5,
-    src: "/images/sera-10.webp",
-    alt: "Taş duvarlı oda",
-    category: "rooms"
-  },
-  {
-    id: 6,
-    src: "/images/sera-11.webp",
-    alt: "Konforlu yatak odası",
-    category: "rooms"
-  },
-  {
-    id: 7,
-    src: "/images/sera-12.webp",
-    alt: "Geniş oda",
-    category: "rooms"
-  },
-  {
-    id: 8,
-    src: "/images/sera-1.jpg",
-    alt: "Pansiyon girişi",
-    category: "exterior"
-  },
-  {
-    id: 9,
     src: "/images/sera-13.webp",
     alt: "Sera Pansiyon",
     category: "exterior"
   },
   {
-    id: 10,
+    id: 5,
     src: "/images/sera-14.webp",
     alt: "Sera Pansiyon detay",
     category: "exterior"
   },
   {
-    id: 11,
+    id: 6,
     src: "/images/sera-15.webp",
     alt: "Pansiyon görünüm",
     category: "exterior"
   },
+  // Teras
   {
-    id: 12,
-    src: "/images/sera-16.webp",
-    alt: "Sera Pansiyon",
+    id: 7,
+    src: "/images/sera-5.webp",
+    alt: "Teras manzarası",
+    category: "terrace"
+  },
+  // Odalar - sadece iç mekan oda fotoğrafları
+  {
+    id: 8,
+    src: "/images/sera-10.webp",
+    alt: "Taş duvarlı oda",
+    category: "rooms"
+  },
+  {
+    id: 9,
+    src: "/images/sera-11.webp",
+    alt: "Konforlu yatak odası",
+    category: "rooms"
+  },
+  {
+    id: 10,
+    src: "/images/sera-12.webp",
+    alt: "Geniş oda",
     category: "rooms"
   }
 ];
