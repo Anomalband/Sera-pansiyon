@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone, ArrowRight } from 'lucide-react';
+import { Phone, ArrowRight, BadgePercent } from 'lucide-react';
 import { aboutContent, hotelInfo } from '../data/mock';
 
 const About = () => {
@@ -39,6 +39,11 @@ const About = () => {
             {aboutContent.paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
+          </div>
+
+          <div className="price-guarantee-banner">
+            <BadgePercent size={20} />
+            <span>Aracı komisyonu olmadan direkt rezervasyon avantajı</span>
           </div>
           
           <button className="btn-primary" onClick={openWhatsApp}>

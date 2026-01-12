@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Users, Phone, Check, ArrowRight } from 'lucide-react';
+import { Users, Phone, Check, ArrowRight, Percent } from 'lucide-react';
 import { rooms, hotelInfo, sectionBackgrounds } from '../data/mock';
 
 const Rooms = () => {
@@ -50,6 +50,10 @@ const Rooms = () => {
           <p className="section-description">
             Geleneksel taş mimaride modern konforun buluştuğu odalarımızda unutulmaz bir konaklama deneyimi yaşayın.
           </p>
+          <div className="price-guarantee-badge-light">
+            <Percent size={16} />
+            <span>Booking ve Airbnb'den daha uygun fiyatlar</span>
+          </div>
         </div>
 
         <div className="rooms-grid">

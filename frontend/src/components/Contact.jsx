@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone, Instagram, MapPin, ArrowRight } from 'lucide-react';
+import { Phone, Instagram, MapPin, ArrowRight, Tag } from 'lucide-react';
 import { hotelInfo, sectionBackgrounds } from '../data/mock';
 
 const Contact = () => {
@@ -48,6 +48,11 @@ const Contact = () => {
             Rezervasyon yapmak veya sorularınız için WhatsApp üzerinden bize ulaşabilirsiniz. 
             Size en kısa sürede dönüş yapacağız.
           </p>
+
+          <div className="price-guarantee-contact">
+            <Tag size={18} />
+            <span>Direkt iletişimde özel indirimler ve esnek ödeme seçenekleri</span>
+          </div>
 
           <div className="contact-info">
             <a
