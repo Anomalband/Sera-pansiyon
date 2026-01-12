@@ -207,6 +207,9 @@ h1, h2, h3 {
 }
 
 .header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: 'Playfair Display', serif;
   font-size: 24px;
   font-weight: 600;
@@ -217,6 +220,15 @@ h1, h2, h3 {
 
 .header-logo:hover {
   color: var(--accent-primary);
+}
+
+.header-logo-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-primary);
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.2);
 }
 
 .header-nav {
