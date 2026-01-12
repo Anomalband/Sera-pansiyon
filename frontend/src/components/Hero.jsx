@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { Phone, MapPin } from 'lucide-react';
-import { hotelInfo, heroImages } from '../data/mock';
+import { Phone, MapPin, Award, ThumbsUp, Shield } from 'lucide-react';
+import { hotelInfo, heroImages, logo } from '../data/mock';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -53,6 +53,11 @@ const Hero = () => {
           opacity: Math.max(0, 1 - scrollY / 500),
         }}
       >
+        {/* Logo */}
+        <div className="hero-logo">
+          <img src={logo} alt="Sera Pansiyon Logo" />
+        </div>
+
         <div className="hero-badge">
           <MapPin size={14} />
           <span>Ayvalık, Balıkesir</span>
@@ -65,6 +70,22 @@ const Hero = () => {
         <p className="hero-description">
           Tarihi taş ev mimarisinde, samimi ve sıcak bir atmosferde unutulmaz bir tatil sizi bekliyor.
         </p>
+
+        {/* Promosyon Badge'leri */}
+        <div className="hero-badges">
+          <div className="promo-badge">
+            <Award size={18} />
+            <span>En İyi Fiyat Garantisi</span>
+          </div>
+          <div className="promo-badge">
+            <ThumbsUp size={18} />
+            <span>Misafir Memnuniyeti</span>
+          </div>
+          <div className="promo-badge">
+            <Shield size={18} />
+            <span>Güvenli Rezervasyon</span>
+          </div>
+        </div>
         
         <div className="hero-actions">
           <button className="btn-primary" onClick={openWhatsApp}>
