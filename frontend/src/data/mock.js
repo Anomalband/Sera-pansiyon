@@ -14,8 +14,8 @@ export const hotelInfo = {
 };
 
 export const heroImages = {
-  main: "/images/hero-new.png", // Yeni yüksek kaliteli görsel
-  terrace: "/images/hero-new.png"
+  main: "/images/hero-main.png", // Palmiye ve deniz manzarası
+  terrace: "/images/hero-main.png"
 };
 
 // Section arka plan görselleri
